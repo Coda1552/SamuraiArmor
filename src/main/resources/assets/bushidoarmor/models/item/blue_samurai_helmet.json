@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "bushidoarmor:item/blue_samurai_helmet"
+  }
+}
