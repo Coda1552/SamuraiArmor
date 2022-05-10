@@ -11,6 +11,7 @@ import net.minecraft.item.*;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
@@ -35,7 +36,9 @@ public class SamuraiArmorItem extends ArmorItem {
     @Override
     public void appendHoverText(ItemStack stack, @Nullable World world, List<ITextComponent> components, ITooltipFlag flag) {
         if (name.equals("icy_blue")) {
-            if (stack.getItem().equals(BAItems.ICY_BLUE_SAMURAI_HELMET.get())) components.add(new TranslationTextComponent("item." + BushidoArmor.MOD_ID + "." + name + "_samurai_helmet_desc"));
+            if (stack.getItem().equals(BAItems.ICY_BLUE_SAMURAI_HELMET.get())) components.add(new TranslationTextComponent("item." + BushidoArmor.MOD_ID + "." + name + "_samurai_helmet_desc").withStyle(TextFormatting.AQUA));
+
+
         }
     }
 
