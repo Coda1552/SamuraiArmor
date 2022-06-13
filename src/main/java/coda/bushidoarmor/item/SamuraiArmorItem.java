@@ -6,6 +6,7 @@ import coda.bushidoarmor.init.BAItems;
 import net.minecraft.client.renderer.entity.model.BipedModel;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.*;
 import net.minecraft.item.crafting.Ingredient;
@@ -36,10 +37,13 @@ public class SamuraiArmorItem extends ArmorItem {
     @Override
     public void appendHoverText(ItemStack stack, @Nullable World world, List<ITextComponent> components, ITooltipFlag flag) {
         if (name.equals("icy_blue")) {
-            if (stack.getItem().equals(BAItems.ICY_BLUE_SAMURAI_HELMET.get())) components.add(new TranslationTextComponent("item." + BushidoArmor.MOD_ID + "." + name + "_samurai_helmet_desc").withStyle(TextFormatting.AQUA));
-
-
+            components.add(new TranslationTextComponent("item." + BushidoArmor.MOD_ID + "." + name + "_desc").withStyle(TextFormatting.AQUA));
         }
+    }
+
+    @Override
+    public void onArmorTick(ItemStack stack, World world, PlayerEntity player) {
+        super.onArmorTick(stack, world, player);
     }
 
     @SuppressWarnings("unchecked")

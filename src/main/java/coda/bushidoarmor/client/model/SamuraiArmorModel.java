@@ -1,12 +1,8 @@
 package coda.bushidoarmor.client.model;
 
-import com.google.common.collect.ImmutableList;
-import com.mojang.blaze3d.matrix.MatrixStack;
-import com.mojang.blaze3d.vertex.IVertexBuilder;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.model.BipedModel;
-import net.minecraft.client.renderer.entity.model.EntityModel;
 import net.minecraft.client.renderer.model.ModelRenderer;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
@@ -134,5 +130,16 @@ public class SamuraiArmorModel extends BipedModel<LivingEntity> {
         modelRenderer.xRot = x;
         modelRenderer.yRot = y;
         modelRenderer.zRot = z;
+    }
+
+    @Override
+    public void prepareMobModel(LivingEntity livingEntity, float p_212843_2_, float p_212843_3_, float p_212843_4_) {
+        super.prepareMobModel(livingEntity, p_212843_2_, p_212843_3_, p_212843_4_);
+
+        if (Minecraft.getInstance().player.isCrouching()) {
+            belt.xRot = -0.5F;
+            loin.xRot = -0.5F;
+            System.out.println("e");
+        }
     }
 }
